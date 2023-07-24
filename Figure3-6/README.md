@@ -6,6 +6,6 @@
  3. Use Figure4.py to regenerate Figure 4
 
 ### Steps to generate Figure 5 and 6:
-1. Run
-2. 
+- Run Figure5.py and Figure6.py
+- The two files are almost identical except that S is 200 for Figure 5 and S is 400 for Figure 6. The search range for price and discount for the MNL avg demand was specified for each scenario.
 
