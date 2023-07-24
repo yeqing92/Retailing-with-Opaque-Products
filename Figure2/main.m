@@ -1,10 +1,10 @@
 % Matlab code to generate Figure 2(a) and 2(b)
+% Run create_ER_q=0_table.m and create_ER_q_table.m to generate data first.
 
 load q0_ER;
 load q0_ER2;
 load q_ER;
 load q_ER2;
-
 
 global ERq0;
 global ER2q0;
@@ -39,7 +39,6 @@ for c=1:500
 end
 
 fig = figure;
-
 for i=2:length(qs)
     col=[ 1 0 0; 0 1 0 ; 0 0 1; 0 0 0];
 
@@ -65,7 +64,7 @@ set(gcf,'position',[10,10,20,20])
 set(fig,'PaperSize',[8 8]); %set the paper size to what you want
 print(fig,'HoldingCostSavings','-dpdf','-r0')
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % uncomment the following block to generate Figure 2(a)
 % 
 % for i=2:length(qs)
