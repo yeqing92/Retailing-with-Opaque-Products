@@ -1,4 +1,4 @@
-# evaluate the expected cost for given parameters
+% evaluate the expected cost for given parameters
 
 function [cost]= computecost(q,c,h,K,lambda)
     global ERq0;
