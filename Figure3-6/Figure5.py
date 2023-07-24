@@ -240,12 +240,18 @@ m = stdev*np.sqrt(6)/math.pi
 demand_input = [mean, mean, m]
 result_tr[demand]= dict.fromkeys(Klist,[])
 result_op[demand]= dict.fromkeys(Klist,[])
-pList = [np.arange(105.5, 106.6, 0.1), np.arange(108.5, 111.6, 0.1), np.arange(112, 113.1, 0.1), np.arange(114.5, 115.6, 0.1),
-         np.arange(118, 119.1, 0.1) , np.arange(121, 122.1, 0.1)]
-dList = [np.arange( 4,  5.1 ,  0.1), np.arange( 4,  5.6 ,  0.1), np.arange( 4,  5.6 ,  0.1), np.arange( 6,  7.5 ,  0.1)]
-KList = [4000,5000,6000,7000,8000, 9000]
-for i in range(len(KList)):
-    K = KList[i]
+
+# The simulation takes a long time to run. We shorten the search range for price and discount.
+pList = [np.arange(100, 101.3, 0.1), np.arange(102, 103.1, 0.1), np.arange(103, 104.1, 0.1), 
+         np.arange(105.5, 106.6, 0.1), np.arange(108.5, 111.6, 0.1), np.arange(112, 113.1, 0.1), np.arange(114.5, 115.6, 0.1),
+         np.arange(118, 119.1, 0.1) , np.arange(121, 122.1, 0.1) , np.arange(121, 123, 0.1)]
+
+dList = [np.arange( 3,  5 ,  0.1),np.arange( 3,  5 ,  0.1),np.arange( 3,  5 ,  0.1),
+         np.arange( 4,  5.6 ,  0.1), np.arange( 4,  5.6 ,  0.1), np.arange( 4,  5.1 ,  0.1), 
+         np.arange( 4,  5.6 ,  0.1), np.arange( 4,  5.6 ,  0.1), np.arange( 6,  7.5 ,  0.1), np.arange( 6,  7.5 ,  0.1),]
+
+for i in range(len(Klist)):
+    K = Klist[i]
     resultList = result(demand, demand_input, c, arr_rate, h, K, pList[i], SList, dList[i])
     result_tr[demand][K]=[ i for i in resultList[0]]
     result_op[demand][K]=[ i for i in resultList[1]]
