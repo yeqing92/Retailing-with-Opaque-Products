@@ -1,3 +1,5 @@
+% DP: solve dynamic programming using value iteration;
+% in every inventory state, optimize the discount for the product with relatively more inventory
 
 tau=.5;
 h_k=100*zeros(c,c);
@@ -6,17 +8,12 @@ T_hk=-1000*rand(c,c);
 P1=zeros(c,c);
 P2=zeros(c,c);
 k=0;
-
-%Value iteration
 t=stdev*sqrt(12);
 a=ave+.5*t;
 fp=best_fp;
-while max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 || max(max(abs(h_k-h_kminus1)))>1.01
 
-    if mod(k,1000)==0
-max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)
-max(max(abs(h_k-h_kminus1)))
-    end
+%Value iteration
+while max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 || max(max(abs(h_k-h_kminus1)))>1.01
     k=k+1;
     for i=1:c
         for j=1:i
