@@ -19,7 +19,7 @@ for i=1:2
     end
 end
             
-OutputTable=zeros(12, 7);
+OutputTable=zeros(12, 8);
 for iii=1:12
     ave2 = Parameters(iii,1)
     stdev = Parameters(iii,2)
@@ -29,6 +29,7 @@ for iii=1:12
     Profits1=best_profit
     c1 = best_c1
     c2 = best_c2
+    rho = c2/c1
     fprintf('Fixed policy - p= %3.2\n', best_fp);
     
     % Step 2: find the optimal discount for opaque selling
@@ -41,7 +42,7 @@ for iii=1:12
 % Step 3: solve the dynamic pricing problem and save the profit
     run('dp_asy_MNL_tau.m');
     Profits3=-lambda*T_hk(1,1)
-    OutputTable(iii,:)=[ave, stdev, Profits1, Profits2, Profits3 , (Profits2-Profits1)/Profits1, (Profits3-Profits1)/Profits1];
+    OutputTable(iii,:)=[ave, stdev, Profits1, Profits2, Profits3 , (Profits2-Profits1)/Profits1, (Profits3-Profits1)/Profits1, rho];
     toc
 end
 
