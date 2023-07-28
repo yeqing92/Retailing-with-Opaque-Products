@@ -27,8 +27,8 @@ for i=1:c1+c2
         end
     end
 end
-ER=J1(c1+1,c2+1)
-ER2=J2(c1+1,c2+1)
+ER=J1(c1+1,c2+1);
+ER2=J2(c1+1,c2+1);
 c=(c1+c2)/2;
 HC=((4*c+1)*ER-ER2)*h/(2*ER);
 KC=lambda*K/ER;
