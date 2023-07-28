@@ -1,3 +1,4 @@
+% no opaque, search for the best price and order up to level
 
 mu=stdev*sqrt(6)/pi;
 best_profit=0;
