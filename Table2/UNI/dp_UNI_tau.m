@@ -1,42 +1,20 @@
-tic
-h=1;
-K = 1000;
-lambda=50;
-c = 50;
-c1 = c;
-c2 = c;
-best_fp = 100;
-stdev = 20;
-ave = 100;
 tau=.5;
-h_k=100*zeros(c1,c2);
-h_kminus1=-1000*rand(c1,c2);
-T_hk=-1000*rand(c1,c2);
-P1=zeros(c1,c2);
-P2=zeros(c1,c2);
+h_k=100*zeros(c,c);
+h_kminus1=1000*rand(c,c);
+T_hk=1000*rand(c,c);
+P1=zeros(c,c);
+P2=zeros(c,c);
 k=0;
-MC = 50;
-
-sc=1;
-% 
-% 
-% tau=.5;
-% h_k=100*zeros(c,c);
-% h_kminus1=1000*rand(c,c);
-% T_hk=1000*rand(c,c);
-% P1=zeros(c,c);
-% P2=zeros(c,c);
-% k=0;
 
 %Value iteration
+
 a=ave - .5*stdev*sqrt(12);
 b=ave + .5*stdev*sqrt(12);
 
 fp=best_fp;
-while k<20 && max(max(abs(h_k-h_kminus1)))> .1 %|| max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 10.0001 
+while max(max(abs(h_k-h_kminus1)))> .1 %|| max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 
     
-    if mod(k,1)==0
-        k
+    if mod(k,1000)==0
 max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)
 max(max(abs(h_k-h_kminus1)))
     end
@@ -45,7 +23,6 @@ max(max(abs(h_k-h_kminus1)))
         for j=1:i
             bestT_hk=1000000;
             for d=max(ceil(.7*fp/sc),ceil(a/sc)):(fp/sc)
-%                 fp=f*sc;
                 dp=d*sc;
                 pi_small=(2*(b-fp)*(dp-a)+(b-fp)^2)/(2*(b-a)^2);
                 pi_big=(2*(b-dp)*(fp-a)+(b-dp)^2- (fp-dp)^2)/(2*(b-a)^2);
@@ -80,5 +57,4 @@ max(max(abs(h_k-h_kminus1)))
 end
 
 Profit=-lambda*T_hk(1,1)
-toc
 
