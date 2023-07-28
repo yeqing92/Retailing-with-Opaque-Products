@@ -1,8 +1,8 @@
 
 tau=.5;
 h_k=100*zeros(c,c);
-h_kminus1=1000*rand(c,c);
-T_hk=1000*rand(c,c);
+h_kminus1=100*rand(c,c);
+T_hk=100*rand(c,c);
 P1=zeros(c,c);
 P2=zeros(c,c);
 k=0;
@@ -11,10 +11,10 @@ k=0;
 mu=stdev*sqrt(6)/pi;
 v=ave;
 f=best_fp/sc;
-while max(max(abs(h_k-h_kminus1)))>.1 %||max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 
+while max(max(abs(h_k-h_kminus1)))>0.01 ||max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 
         
     if mod(k,1000)==0
-%max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)
+max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)
 max(max(abs(h_k-h_kminus1)))
     end
     k=k+1;
