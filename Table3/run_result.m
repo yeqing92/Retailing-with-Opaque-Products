@@ -27,12 +27,13 @@ for iii=1:12
     % Step 1: find the optimal price and order-up-to level for traditional selliong for each setting
     run('dp_tr_asy_MNL_min.m');
     Profits1=best_profit
-    S=best_S
-    fprintf('Fixed policy - p= %3.2f, c=%3.0f \n');
+    c1 = best_c1
+    c2 = best_c2
+    fprintf('Fixed policy - p= %3.2\n', best_fp);
     
     % Step 2: find the optimal discount for opaque selling
     run('dp_opaque_asy_MNL_min.m');
-    fprintf('Opqaque (avg) policy - p= %3.2f, d=%3.2f \n')
+    fprintf('Opqaque (avg) policy - p= %3.2f, d=%3.2f \n', best_fp, best_fp-best_dp)
     Profits2=best_profit
     best_fp=best_fp;
     best_dp=best_dp;
