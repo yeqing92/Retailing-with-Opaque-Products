@@ -13,13 +13,12 @@ a=ave+.5*t;
 fp=best_fp;
 
 %Value iteration
-while max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 || max(max(abs(h_k-h_kminus1)))>1.01
+while max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 || max(max(abs(h_k-h_kminus1)))>0.01
     k=k+1;
     for i=1:c
         for j=1:i
             bestT_hk=1000000;
-            %for d=ceil((a-t)/sc):fp/sc
-            for d=(fp-1)/sc:fp/sc
+            for d=ceil((a-t)/sc):fp/sc
                 dp=d*sc;
                 if (t-fp+dp)/(2*t) <= (a-fp)/t && (t-fp+dp)/(2*t) >=0
                     pi_small=(t-fp+dp)/(2*t);
