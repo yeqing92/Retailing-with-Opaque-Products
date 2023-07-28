@@ -12,7 +12,7 @@ a=ave - .5*stdev*sqrt(12);
 b=ave + .5*stdev*sqrt(12);
 
 fp=best_fp;
-while max(max(abs(h_k-h_kminus1)))> 0.01 %|| max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 
+while max(max(abs(h_k-h_kminus1)))> 0.01 || max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)> 1.01 
     
     if mod(k,5000)==0
 max(max(abs(T_hk-tau*h_kminus1)))/min(min(abs(T_hk-tau*h_kminus1))+10^-5)
